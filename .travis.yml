@@ -16,7 +16,6 @@ install:
 
 before_script:
   # Build images
-  - cd docker/
   - docker-compose build
 
 script:
