@@ -21,6 +21,9 @@ sudo apt-get install docker-compose
 ```
 #### (1b) MaxMind Install
 ```
+sudo apt-get install software-properties-common
+```
+```
 sudo add-apt-repository ppa:maxmind/ppa
 ```
 ```
@@ -28,18 +31,33 @@ sudo apt-get install geoipupdate
 ```
 ### (2) Download pfELK Docker
 ```
-sudo wget https://github.com/3ilson/docker-pfelk/blob/master/pfelk.zip
+sudo wget https://github.com/3ilson/docker-pfelk/archive/master.zip
 ```
 #### (2a) Unzip pfelk.zip
 ```
-sudo unzip pfelk.zip
+sudo apt-get install unzip
 ```
-#### (2b) Copy GeoIP Files (pfelk.zip:/logstash/GeoIP)
+```
+sudo unzip master.zip
+```
+#### (2b) Enter License Key
+- Ceate a Max Mind Account @ https://www.maxmind.com/en/geolite2/signup
+- Login to your Max Mind Account; navigate to "My License Key" under "Services" and Generate new license key
+- Enter the Account ID and Key to the file below
+```
+sudo nano /etc/GeoIP.conf
+```
+- Wait up to 5min and initiate geoipupdate
+```
+geoipupdate
+```
+#### (2c) Copy GeoIP Files (pfelk.zip:/logstash/GeoIP)
 - [X] GeoLike2-ASN.mmdb 
 - [X] GeoLite2-City.mmdb
 - [X] GeoLite2-Country.mmdb 
 ```
-sudo cp usr/share/GeoIP/[Files List Above] --> pfelk.zip:/logstash/GeoIP
+sudo cp /usr/share/GeoIP/GeoLite2-City.mmdb docker-pfelk-master/logstash/GeoIP/
+sudo cp /usr/share/GeoIP/GeoLite2-Country.mmdb docker-pfelk-master/logstash/GeoIP/
 ```
 ### (3) Memory 
 #### (3a) Set vm.max_map_count to no less than 262144 (must run each time host is booted)
@@ -48,8 +66,7 @@ sudo sysctl -w vm.max_map_count=262144
 ```
 #### (3b) Set vm.max_map_count to no less than 262144 (one time configuration) 
 ```
-grep vm.max_map_count /etc/sysctl.conf
-vm.max_map_count=262144
+sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 ### (4) Configuration
 #### (4a) Edit 01-inputs.conf (pfelk.zip:/logstash/pipeline/01-inputs.conf)
