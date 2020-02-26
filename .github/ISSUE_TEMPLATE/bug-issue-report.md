@@ -34,8 +34,15 @@ If applicable, add screenshots to help explain your problem.
  - Version of Docker (`docker -v`):
  - Version of Docker-Compose (`docker-compose -v`):
 
-**Elastic, Logstash, Kibana (please complete the following information):**
- - Version of ELK (`cat .env`)
+**Elasticsearch, Logstash, Kibana (please complete the following information):**
+ - Version of ELK (`cat /docker-pfelk/.env`)
+ 
+ **Service logs
+ - `docker-compose logs pfelk01`
+ - `docker-compose logs pfelk02`
+ - `docker-compose logs pfelk03`
+ - `docker-compose logs logstash`
+ - `docker-compose logs kibana`
 
 **Additional context**
 Add any other context about the problem here.
