@@ -52,10 +52,11 @@ sudo nano /etc/GeoIP.conf
 geoipupdate
 ```
 #### (2c) Copy GeoIP Files (pfelk.zip:/logstash/GeoIP)
-- [X] GeoLike2-ASN.mmdb 
+- [X] GeoLite2-ASN.mmdb 
 - [X] GeoLite2-City.mmdb
 - [X] GeoLite2-Country.mmdb 
 ```
+sudo cp /usr/share/GeoIP/GeoLite2-ASN.mmdb docker-pfelk-master/logstash/GeoIP/
 sudo cp /usr/share/GeoIP/GeoLite2-City.mmdb docker-pfelk-master/logstash/GeoIP/
 sudo cp /usr/share/GeoIP/GeoLite2-Country.mmdb docker-pfelk-master/logstash/GeoIP/
 ```
