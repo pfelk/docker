@@ -5,7 +5,7 @@ Deploy pfelk with docker-compose
 - [X] Docker Working
 - [ ] Create download script
 - [X] Create Instructions
-- [ ] Create Video Tutorial 
+- [X] [Create Video Tutorial](https://www.youtube.com/watch?v=wxnKjkVSOQU) 
 
 ### (1) Required Prerequisits 
 - [X] Docker 
