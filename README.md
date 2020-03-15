@@ -49,7 +49,7 @@ sudo nano /etc/GeoIP.conf
 ```
 - Wait up to 5min and initiate geoipupdate
 ```
-geoipupdate
+sudo geoipupdate
 ```
 #### (2c) Copy GeoIP Files (pfelk.zip:/logstash/GeoIP)
 - [X] GeoLite2-ASN.mmdb 
