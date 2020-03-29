@@ -1,8 +1,11 @@
 version: '3.2'
 services:
   pfelk01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: pfelk01
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
     hostname: pfelk01
     environment:
@@ -27,8 +30,11 @@ services:
       - pfelk
 
   pfelk02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: pfelk02
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
     hostname: pfelk02
     environment:
@@ -51,8 +57,11 @@ services:
       - pfelk
 
   pfelk03:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: pfelk03
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
     hostname: pfelk03
     environment:
@@ -75,6 +84,7 @@ services:
       - pfelk
 
   logstash:
+    container_name: logstash
     build:
       context: logstash/
       args:
@@ -85,9 +95,11 @@ services:
         source: ./logstash/config/logstash.yml
         target: /usr/share/logstash/config/logstash.yml
         read_only: true
-      - ./logstash/pipeline/:/usr/share/logstash/pipeline/
-      - ./logstash/patterns/:/usr/share/logstash/patterns/
-      - ./logstash/GeoIP/:/usr/share/logstash/GeoIP/
+      - ./logstash/config/:/usr/share/logstash/config/
+      - ./logstash/conf.d/:/usr/share/logstash/etc/logstash/conf.d/
+      - ./logstash/conf.d/patterns/:/usr/share/logstash/etc/logstash/conf.d/patterns/
+      - ./logstash/conf.d/template/:/usr/share/logstash/etc/logstash/conf.d/template/
+      - /usr/share/GeoIP/:/usr/share/logstash/GeoIP/
     ports:
       - "5000:5000"
       - "9600:9600"
@@ -96,10 +108,11 @@ services:
       LS_JAVA_OPTS: "-Xmx1G -Xms1G"
     networks:
       - pfelk
-#    depends_on:
-#      - pfelk01,pfelk02
+    depends_on:
+      - pfelk01
 
   kibana:
+    container_name: kibana
     build:
       context: kibana/
       args:
@@ -124,6 +137,7 @@ volumes:
     driver: local
   pfelk03:
     driver: local
+
 networks:
   pfelk:
     driver: bridge
