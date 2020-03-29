@@ -1,12 +1,6 @@
 ![pfelk dashboard](https://github.com/3ilson/docker-pfelk/blob/master/pfelk%2Bdocker.jpg)
 # docker-pfelk [![Build Status](https://travis-ci.org/3ilson/docker-pfelk.svg?branch=master)](https://travis-ci.org/3ilson/docker-pfelk)
-Deploy pfelk with docker-compose
-
-# Docker Status = "Work in progress"
-- [X] Docker Working
-- [ ] Create download script
-- [X] Create Instructions
-- [X] [Create Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
+Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
 
 ### (1) Required Prerequisits 
 - [X] Docker 
