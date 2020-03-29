@@ -47,9 +47,6 @@ sudo nano /etc/GeoIP.conf
 sudo geoipupdate
 ```
 #### (2c) Copy GeoIP Files (pfelk.zip:/logstash/GeoIP)
-- [X] GeoLite2-ASN.mmdb 
-- [X] GeoLite2-City.mmdb
-- [X] GeoLite2-Country.mmdb 
 ```
 sudo cp /usr/share/GeoIP/GeoLite2-ASN.mmdb /ENTERYOURPATH/logstash/GeoIP/
 sudo cp /usr/share/GeoIP/GeoLite2-City.mmdb /ENTERYOURPATH/logstash/GeoIP/
