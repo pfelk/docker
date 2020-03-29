@@ -63,9 +63,16 @@ sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 ### (4) Configuration
 #### (4a) Edit 01-inputs.conf (pfelk.zip:/logstash/pipeline/01-inputs.conf)
-Amend line #9 to match your pfSense or OPNsense IP address
+```
+Change line 9; the "if [host] =~ ..." should point to your pfSense/OPNsense IP address
+Change line 12; rename "firewall" (OPTIONAL) to identify your device (i.e. backup_firewall)
+Change line 15-22; (OPTIONAL) to point to your second PF IP address or ignore
+```
 #### (4b) Edit 01-inputs.conf (pfelk.zip:/logstash/pipeline/01-inputs.conf)
-Amend line 24-29 comment or uncomment the OPNsense or pfSense grok pattern
+```
+For pfSense uncommit line 30 and commit out line 27
+For OPNsense uncommit line 27 and commit out line 30
+```
 ### (5) Start Docker 
 ```
 sudo docker-compose up
