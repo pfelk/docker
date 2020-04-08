@@ -1,6 +1,10 @@
 ![pfelk dashboard](https://github.com/3ilson/docker-pfelk/blob/master/pfelk%2Bdocker.jpg)
-# docker-pfelk [![Build Status](https://travis-ci.org/3ilson/docker-pfelk.svg?branch=master)](https://travis-ci.org/3ilson/docker-pfelk)
+# docker-pfelk 
 Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
+
+![Version badge](https://img.shields.io/badge/ELK-7.6.1-blue.svg)
+[![Build Status](https://travis-ci.org/3ilson/docker-pfelk.svg?branch=master)](https://travis-ci.org/3ilson/docker-pfelk)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/a3ilson) 
 
 ### (1) Required Prerequisits 
 - [X] Docker 
