@@ -28,7 +28,7 @@ sudo apt-get install geoipupdate
 ```
 sudo wget https://github.com/3ilson/docker-pfelk/raw/master/pfelkdocker.zip
 ```
-#### (2a) Unzip pfelk.zip
+#### (2a) Unzip pfelkdocker.zip
 ```
 sudo apt-get install unzip
 ```
