@@ -42,9 +42,13 @@ sudo unzip pfelkdocker.zip
 #### (2b) Enter License Key
 - Ceate a Max Mind Account @ https://www.maxmind.com/en/geolite2/signup
 - Login to your Max Mind Account; navigate to "My License Key" under "Services" and Generate new license key
-- Enter the Account ID and Key to the file below
+- Enter the Account ID and Key to the file below (lines 7 & 8)
 ```
 sudo nano /etc/GeoIP.conf
+```
+- Modify line 13 as follows:
+```
+EditionIDs GeoLite2-City GeoLite2-Country GeoLite2-ASN
 ```
 - Wait up to 5min and initiate geoipupdate
 ```
