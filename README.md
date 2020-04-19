@@ -10,6 +10,7 @@ Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?
 - [X] Docker 
 - [X] Docker-Compose
 - [X] Maxmind 
+- [X] Java 
 
 #### (1a) Docker Install
 ```
