@@ -1,4 +1,4 @@
-![pfelk dashboard](https://github.com/3ilson/docker-pfelk/blob/master/pfelk%2Bdocker.jpg)
+![pfelk dashboard](https://github.com/3ilson/docker-pfelk/blob/master/docker%2Bpfelk.png)
 # docker-pfelk 
 Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
 
