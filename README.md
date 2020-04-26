@@ -49,7 +49,7 @@ EditionIDs GeoLite2-City GeoLite2-Country GeoLite2-ASN
 ```
 - Wait up to 5min and initiate geoipupdate
 ```
-sudo geoipupdate
+sudo geoipupdate -d //usr/share/GeoIP/
 ```
 ### (3) Memory 
 #### (3a) Set vm.max_map_count to no less than 262144 (must run each time host is booted)
