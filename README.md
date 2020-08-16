@@ -80,3 +80,48 @@ For OPNsense uncommit line 31 and commit out line 34
 sudo docker-compose up
 ```
 Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
+
+
+### Scaling out pfelk
+
+#### (0) Prerequisites
+
+Please visit the [following documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) for additional details.
+
+Set `vm.max_map_count` to at least `262144`
+
+```
+grep vm.max_map_count /etc/sysctl.conf
+vm.max_map_count=262144
+
+sysctl -w vm.max_map_count=262144
+```
+
+
+**Randomize published ports**
+
+Use either `--publish-all` or enable random ports for hosts, for example:
+
+```
+  elasticsearch:
+    ports:
+      - '9200'
+```
+
+**Enable the data path to be shared by multiple nodes**
+
+For example, if you want to scale out to 3 nodes, use the following value:
+
+```
+  elasticsearch:
+    environment:
+      node.max_local_storage_nodes: '3'
+```
+
+#### (1) Scale out pfelk
+
+Scale out your deployment to 3 nodes by running the following command:
+
+```
+docker-compose up -d --scale pfelk=3
+```

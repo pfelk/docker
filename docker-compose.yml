@@ -1,18 +1,16 @@
 version: '3.2'
 services:
-  pfelk01:
-    container_name: pfelk01
+  pfelk:
+    container_name: pfelk
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
-    hostname: pfelk01
+    hostname: pfelk
     environment:
-       - node.name=pfelk01
+       - node.name=pfelk
        - cluster.name=pfelk-docker-cluster
-       - discovery.seed_hosts=pfelk02,pfelk03
-       - cluster.initial_master_nodes=pfelk01,pfelk02
        - bootstrap.memory_lock=true
        - ES_JAVA_OPTS= -Xms512m -Xmx512m
     ulimits:
@@ -26,60 +24,6 @@ services:
       - pfelk01:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
-    networks:
-      - pfelk
-
-  pfelk02:
-    container_name: pfelk02
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    restart: unless-stopped
-    hostname: pfelk02
-    environment:
-       - node.name=pfelk02
-       - cluster.name=pfelk-docker-cluster
-       - discovery.seed_hosts=pfelk01,pfelk03
-       - cluster.initial_master_nodes=pfelk01,pfelk02,pfelk03
-       - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms512m -Xmx512m
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    volumes:
-      - pfelk02:/usr/share/elasticsearch/data
-    networks:
-      - pfelk
-
-  pfelk03:
-    container_name: pfelk03
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    restart: unless-stopped
-    hostname: pfelk03
-    environment:
-       - node.name=pfelk03
-       - cluster.name=pfelk-docker-cluster
-       - discovery.seed_hosts=pfelk01,pfelk02
-       - cluster.initial_master_nodes=pfelk01,pfelk02,pfelk03
-       - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms512m -Xmx512m
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    volumes:
-      - pfelk03:/usr/share/elasticsearch/data
     networks:
       - pfelk
 
@@ -109,7 +53,7 @@ services:
     networks:
       - pfelk
     depends_on:
-      - pfelk01
+      - pfelk
 
   kibana:
     container_name: kibana
@@ -128,7 +72,7 @@ services:
     networks:
       - pfelk
     depends_on:
-      - logstash
+      - pfelk
 
 volumes:
   pfelk01:
