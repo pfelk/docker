@@ -21,7 +21,7 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - pfelk01:/usr/share/elasticsearch/data
+      - pfelk:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     networks:
