@@ -75,11 +75,7 @@ services:
       - pfelk
 
 volumes:
-  pfelk01:
-    driver: local
-  pfelk02:
-    driver: local
-  pfelk03:
+  pfelk:
     driver: local
 
 networks:
