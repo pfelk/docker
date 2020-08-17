@@ -88,16 +88,6 @@ Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
 
 Please visit the [following documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) for additional details.
 
-Set `vm.max_map_count` to at least `262144`
-
-```
-grep vm.max_map_count /etc/sysctl.conf
-vm.max_map_count=262144
-
-sysctl -w vm.max_map_count=262144
-```
-
-
 **Randomize published ports**
 
 Use either `--publish-all` or enable random ports for hosts, for example:
@@ -123,5 +113,5 @@ For example, if you want to scale out to 3 nodes, use the following value:
 Scale out your deployment to 3 nodes by running the following command:
 
 ```
-docker-compose up -d --scale pfelk=3
+sudo docker-compose up -d --scale pfelk=3
 ```
