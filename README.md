@@ -64,16 +64,14 @@ sudo sysctl -w vm.max_map_count=262144
 sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 ```
 ### (4) Configuration
-#### (4a) Edit 01-inputs.conf (pfelkdocker.zip:/logstash/conf.d/01-inputs.conf)
+#### (4a) Edit 02-types.conf (pfelkdocker.zip:/logstash/conf.d/02-types.conf)
 ```
-Change line 12; the "if [host] =~ ..." should point to your pfSense/OPNsense IP address
-Change line 15; rename "firewall" (OPTIONAL) to identify your device (i.e. backup_firewall)
-Change line 18-27; (OPTIONAL) to point to your second PF IP address or ignore
+Change line 5; the "if [host] == ..." should point to your pfSense/OPNsense IP address
 ```
-#### (4b) Edit 01-inputs.conf (pfelkdocker.zip:/logstash/conf.d/01-inputs.conf)
+#### (4b) Edit 03-filter.conf (pfelkdocker.zip:/logstash/conf.d/03-filter.conf)
 ```
-For pfSense uncommit line 34 and commit out line 31
-For OPNsense uncommit line 31 and commit out line 34
+For pfSense uncommit line 5 and commit out line 4
+For OPNsense uncommit line 4 and commit out line 5
 ```
 ### (5) Start Docker 
 ```
