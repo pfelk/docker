@@ -1,2 +1,2 @@
-cluster.name: "pfelk-docker-cluster"
+cluster.name: "pfelk"
 network.host: 0.0.0.0
