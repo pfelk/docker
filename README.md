@@ -25,6 +25,9 @@ sudo apt-get install software-properties-common
 ```
 sudo add-apt-repository ppa:maxmind/ppa
 ```
+```
+sudo apt install geoipupdate
+```
 ### (2) Download pfELK Docker
 ```
 sudo wget https://github.com/3ilson/docker-pfelk/raw/master/pfelkdocker.zip
