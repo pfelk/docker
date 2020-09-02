@@ -52,9 +52,6 @@ EditionIDs GeoLite2-City GeoLite2-Country GeoLite2-ASN
 ```
 - Wait up to 5min and initiate geoipupdate
 ```
-sudo mkdir /usr/share/GeoIP/
-```
-```
 sudo geoipupdate -d /usr/share/GeoIP/
 ```
 ### (3) Memory 
