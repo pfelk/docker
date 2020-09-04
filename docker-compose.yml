@@ -12,7 +12,7 @@ services:
        - node.name=pfelk
        - cluster.name=pfelk-docker-cluster
        - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms1g -Xmx1g
+       - ES_JAVA_OPTS= -Xms1G -Xmx1G
     ulimits:
       memlock:
         soft: -1
@@ -21,7 +21,7 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - pfelk:/usr/share/elasticsearch/data
+      - pfelk01:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     networks:
@@ -50,7 +50,7 @@ services:
       - "9600:9600"
       - "5140:5140/udp"
     environment:
-      LS_JAVA_OPTS: -Xmx2G -Xms2G
+      LS_JAVA_OPTS: -Xmx1G -Xms1G
     networks:
       - pfelk
     depends_on:
@@ -76,7 +76,11 @@ services:
       - pfelk
 
 volumes:
-  pfelk:
+  pfelk01:
+    driver: local
+  pfelk02:
+    driver: local
+  pfelk03:
     driver: local
 
 networks:
