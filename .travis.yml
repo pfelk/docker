@@ -22,7 +22,7 @@ script:
   # Compose
   - docker-compose up -d
   - docker-compose ps
-  - docker-compose logs pfelk
+  - docker-compose logs elastic
   - docker-compose logs logstash
   - docker-compose logs kibana
   - docker-compose down -v
