@@ -1,2 +1,2 @@
-cluster.name: "pfelk"
+cluster.name: "elastic"
 network.host: 0.0.0.0
