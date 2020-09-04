@@ -1,16 +1,16 @@
 version: '3.2'
 services:
-  pfelk:
-    container_name: pfelk
+  elastic:
+    container_name: elastic
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
-    hostname: pfelk
+    hostname: elastic
     environment:
-       - node.name=pfelk
-       - cluster.name=pfelk-docker-cluster
+       - node.name=elastic
+       - cluster.name=elastic-docker-cluster
        - bootstrap.memory_lock=true
        - ES_JAVA_OPTS= -Xms1G -Xmx1G
     ulimits:
@@ -21,11 +21,11 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - pfelk01:/usr/share/elasticsearch/data
+      - elastic:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     networks:
-      - pfelk
+      - elastic
 
   logstash:
     container_name: logstash
@@ -52,9 +52,9 @@ services:
     environment:
       LS_JAVA_OPTS: -Xmx1G -Xms1G
     networks:
-      - pfelk
+      - elastic
     depends_on:
-      - pfelk
+      - elastic
 
   kibana:
     container_name: kibana
@@ -71,18 +71,14 @@ services:
     ports:
       - "5601:5601"
     networks:
-      - pfelk
+      - elastic
     depends_on:
-      - pfelk
+      - elastic
 
 volumes:
-  pfelk01:
-    driver: local
-  pfelk02:
-    driver: local
-  pfelk03:
+  elastic:
     driver: local
 
 networks:
-  pfelk:
+  elastic:
     driver: bridge
