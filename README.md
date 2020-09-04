@@ -71,6 +71,7 @@ Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
 
 
 ### Scaling out pfelk
+Replace docker-compose.yml with this version of [docker-compose.yml](https://raw.githubusercontent.com/3ilson/docker-pfelk/master/scale/docker-compose.yml)
 
 #### (0) Prerequisites
 
