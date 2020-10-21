@@ -1,7 +1,7 @@
 # docker-pfelk 
 Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
 
-![Version badge](https://img.shields.io/badge/ELK-7.9.1-blue.svg)
+![Version badge](https://img.shields.io/badge/ELK-7.9.2-blue.svg)
 [![Build Status](https://travis-ci.org/3ilson/docker-pfelk.svg?branch=master)](https://travis-ci.org/3ilson/docker-pfelk)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/a3ilson) 
 
@@ -104,3 +104,7 @@ Scale out your deployment to 3 nodes by running the following command:
 ```
 sudo docker-compose up -d --scale pfelk=3
 ```
+
+### (4) Finalizing 
+
+Finalize templates and dashboards [here](https://github.com/3ilson/docker-pfelk/blob/master/finalize.md)
