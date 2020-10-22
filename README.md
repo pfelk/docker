@@ -1,7 +1,7 @@
 # docker-pfelk 
 Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?v=xl0v9h8RXBc) 
 
-![Version badge](https://img.shields.io/badge/ELK-7.9.2-blue.svg)
+![Version badge](https://img.shields.io/badge/ELK-7.9.3-blue.svg)
 [![Build Status](https://travis-ci.org/3ilson/docker-pfelk.svg?branch=master)](https://travis-ci.org/3ilson/docker-pfelk)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/a3ilson) 
 
