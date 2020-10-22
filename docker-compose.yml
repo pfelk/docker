@@ -1,85 +1,74 @@
 version: '3.2'
 services:
-  elastic:
-    container_name: elastic
+  es01:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
-    hostname: elastic
+    hostname: es01
+    container_name: es01
     environment:
-       - node.name=elastic
-       - cluster.name=elastic-docker-cluster
-       - discovery.seed_hosts=elastic02,elastic03
-       - cluster.initial_master_nodes=elastic,elastic02
-       - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms1G -Xmx1G
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es02,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
     volumes:
-      - elastic:/usr/share/elasticsearch/data
+      - data01:/usr/share/elasticsearch/data
     ports:
-      - "9200:9200"
+      - 9200:9200
     networks:
       - elastic
-
-  elastic02:
-    container_name: elastic02
+  es02:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
-    hostname: elastic02
+    hostname: es02
+    container_name: es02
     environment:
-       - node.name=elastic02
-       - cluster.name=elastic-docker-cluster
-       - discovery.seed_hosts=elastic,elastic03
-       - cluster.initial_master_nodes=elastic,elastic02,elastic03
-       - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms1G -Xmx1G
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
     volumes:
-      - elastic02:/usr/share/elasticsearch/data
+      - data02:/usr/share/elasticsearch/data
     networks:
       - elastic
-
-  elastic03:
-    container_name: elastic03
+  es03:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    restart: unless-stopped
-    hostname: elastic03
+    hostname: es03
+    container_name: es03
+    container_name: es03
     environment:
-       - node.name=elastic03
-       - cluster.name=elastic-docker-cluster
-       - discovery.seed_hosts=elastic,elastic02
-       - cluster.initial_master_nodes=elastic,elastic02,elastic03
-       - bootstrap.memory_lock=true
-       - ES_JAVA_OPTS= -Xms1G -Xmx1G
+      - node.name=es03
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es02
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
     volumes:
-      - elastic03:/usr/share/elasticsearch/data
+      - data03:/usr/share/elasticsearch/data
     networks:
       - elastic
 
@@ -109,7 +98,7 @@ services:
     networks:
       - elastic
     depends_on:
-      - elastic
+      - es01
 
   kibana:
     container_name: kibana
@@ -131,11 +120,11 @@ services:
       - logstash
 
 volumes:
-  elastic:
+  data01:
     driver: local
-  elastic02:
+  data02:
     driver: local
-  elastic03:
+  data03:
     driver: local
 
 networks:
