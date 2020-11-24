@@ -18,16 +18,9 @@ sudo apt-get install docker
 ```
 sudo apt-get install docker-compose
 ```
-#### (1b) MaxMind Install
-```
-sudo apt-get install software-properties-common
-```
-```
-sudo add-apt-repository ppa:maxmind/ppa
-```
-```
-sudo apt install geoipupdate
-```
+#### (1b) MaxMind Install (Optional) 
+Follow the steps [here](https://github.com/pfelk/pfelk/wiki/How-To:-MaxMind-via-GeoIP-with-pfELK), to install and utilize MaxMind. Otherwise the built-in GeoIP from Elastic will be utilized.
+
 ### (2) Download pfELK Docker
 ```
 sudo wget https://github.com/3ilson/docker-pfelk/raw/master/pfelkdocker.zip
