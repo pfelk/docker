@@ -97,11 +97,7 @@
  - Enable "advanced mode"
  - Access log target = Syslog(Json)
  ![OPNsense-Squid](https://raw.githubusercontent.com/pfelk/pfelk/master/Images/opnsense_squid_syslog.PNG)
-### 3h. Configure Unbound DNS for full query log forwarding - OPNsense (Optional)
- - In OPNsense navigate to Services->Unbound DNS->Advanced
- - Log Queries = [X]
- ![OPNsense-Unbound](https://raw.githubusercontent.com/pfelk/pfelk/master/Images/opnsense_unbound_queries.PNG)
-### 4h. Configure Unbound DNS for full query log forwarding - pfSense/OPNsense (Optional)
+### 3h. Configure Unbound DNS for full query log forwarding - pfSense/OPNsense (Optional)
  - In OPNsense navigate to Services->Unbound DNS->Advanced
  - Log level verbosity = ```Level 0```
  - Log Queries = [X]
