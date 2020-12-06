@@ -53,8 +53,8 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
+    restart: unless-stopped
     hostname: es03
-    container_name: es03
     container_name: es03
     environment:
       - node.name=es03
