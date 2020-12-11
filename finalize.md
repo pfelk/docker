@@ -5,19 +5,22 @@
 - [Firewall](#firewall)
 - [Finished](#finished)
 
-# Templates
-### 1. Import required templates
->- In your web browser go to the pfELK local IP using port 5601 (ex: 192.168.0.1:5601)
->- Click ☰ in the upper left corner
->- Click on Dev Tools located near the bottom under the Management heading
->- Paste the contents of each template file located [here](https://github.com/pfelk/pfelk/tree/master/etc/logstash/conf.d/templates)
-  >- [pfelk](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk)
-  >- [pfelk-dhcp](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-dhcp)
-  >- [pfelk-haproxy](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-haproxy)
-  >- [pfelk-mappings-ecs](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-mappings-ecs)
-  >- [pfelk-settings](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-settings)
-  >- [pfelk-suricata](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-suricata)
->- Click the green triangle after pasting the contents (one at a time) into the console
+># Templates
+>### 1. Import required templates
+- In your web browser go to the pfELK local IP using port 5601 (ex: 192.168.0.1:5601)
+- Click ☰ in the upper left corner
+- Click on Dev Tools located near the bottom under the Management heading
+- Paste the contents of each template file located [here](https://github.com/pfelk/pfelk/tree/master/etc/logstash/conf.d/templates)
+  - Component Templates
+    - **NOTE** _Component Templates must be installed first and in sequential order (e.g. pfelk-settings, pfelk-mappings-ecs etc...)_
+    - [pfelk-settings](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-settings) - Install First
+    - [pfelk-mappings-ecs](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-mappings-ecs) - Install Second
+  - Index Templates
+    - [pfelk](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk)
+    - [pfelk-dhcp](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-dhcp)
+    - [pfelk-haproxy](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-haproxy)
+    - [pfelk-suricata](https://raw.githubusercontent.com/pfelk/pfelk/master/etc/logstash/conf.d/templates/pfelk-suricata)
+- Click the green triangle after pasting the contents (one at a time) into the console
 
 ![Templates](https://raw.githubusercontent.com/pfelk/pfelk/master/Images/template-import.PNG)
 
