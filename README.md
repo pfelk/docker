@@ -21,7 +21,7 @@ Follow the steps [here](https://github.com/pfelk/pfelk/wiki/How-To:-MaxMind-via-
 
 ### (2) Download pfELK Docker
 ```
-sudo wget https://github.com/3ilson/docker-pfelk/raw/master/pfelkdocker.zip
+sudo wget https://github.com/pfelk/docker-pfelk/raw/master/pfelkdocker.zip
 ```
 #### (2a) Unzip pfelkdocker.zip
 ```
