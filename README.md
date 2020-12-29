@@ -82,4 +82,4 @@ sudo docker-compose up -d --scale pfelk=3
 
 ### (4) Finalizing 
 
-Finalize templates and dashboards [here](https://github.com/pfelk/docker/blob/master/finalize.md)
+Finalize templates and dashboards [here](https://github.com/pfelk/pfelk/blob/master/install/configuration.md)
