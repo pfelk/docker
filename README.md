@@ -8,6 +8,7 @@ Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?
 ### (1) Required Prerequisits 
 - [X] Docker 
 - [X] Docker-Compose
+- [X] Adequate Memory (i.e. 4GB+)
 
 #### (1a) Docker Install
 ```
