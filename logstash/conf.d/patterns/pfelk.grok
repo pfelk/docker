@@ -1,8 +1,11 @@
 # pfelk.grok
-#########
-# 21.01-1 #
-#########
-
+################################################################################
+# Version: 21.01-1                                                             #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+################################################################################
+#
 # DHCPv4 (Optional)
 DHCPD_VIA via (%{IP:[dhcpv4][relay][ip]}|(?<[interface][name]>[^: ]+))
 DHCPD DHCP(%{DHCPD_DISCOVER}|%{DHCPD_OFFER_ACK}|%{DHCPD_REQUEST}|%{DHCPD_DECLINE}|%{DHCPD_RELEASE}|%{DHCPD_INFORM}|%{DHCPD_LEASE})(: %{GREEDYDATA:[dhcpv4][option][message]})?
