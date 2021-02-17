@@ -5,20 +5,18 @@ Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?
 [![Build Status](https://travis-ci.org/pfelk/docker.svg?branch=master)](https://travis-ci.org/pfelk/docker-pfelk)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/a3ilson) 
 
-### (1) Required Prerequisits 
+### (0) Required Prerequisits 
 - [X] Docker 
 - [X] Docker-Compose
 - [X] Adequate Memory (i.e. 4GB+)
 
-#### (1a) Docker Install
+#### (1) Docker Install
 ```
 sudo apt-get install docker
 ```
 ```
 sudo apt-get install docker-compose
 ```
-#### (1b) MaxMind Install (Optional) 
-Follow the steps [here](https://github.com/pfelk/pfelk/wiki/How-To:-MaxMind-via-GeoIP-with-pfELK), to install and utilize MaxMind. Otherwise the built-in GeoIP from Elastic will be utilized.
 
 ### (2) Download pfELK Docker
 ```
