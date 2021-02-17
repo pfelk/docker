@@ -75,6 +75,8 @@ services:
       context: logstash/
       args:
         ELK_VERSION: $ELK_VERSION
+    environment:
+      LS_JAVA_OPTS: -Xmx1G -Xms1G
     restart: unless-stopped
     volumes:
       - ./etc/logstash/config/:/usr/share/logstash/config:ro       
@@ -88,8 +90,6 @@ services:
       - 5141:5141/udp
       - 5190:5190
       - 9600:9600
-    environment:
-      LS_JAVA_OPTS: -Xmx1G -Xms1G
     networks:
       - elastic
     depends_on:
