@@ -1,4 +1,4 @@
-version: '3.2'
+version: '2.2'
 services:
   es01:
     build:
@@ -80,19 +80,17 @@ services:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
     volumes:
-      - type: bind
-        source: ./logstash/config/logstash.yml
-        target: /usr/share/logstash/config/logstash.yml
-        read_only: true
-      - ./logstash/config/:/usr/share/logstash/config/        
-      - ./logstash/conf.d/:/usr/share/logstash/etc/logstash/conf.d/
-      - ./logstash/conf.d/patterns/:/usr/share/logstash/etc/logstash/conf.d/patterns/
-      - ./logstash/conf.d/databases/:/usr/share/logstash/etc/logstash/conf.d/databases/
-      - /usr/share/GeoIP/:/usr/share/GeoIP/
+      - ./etc/logstash/config/:/usr/share/logstash/config:ro       
+      - ./etc/logstash/conf.d/:/etc/pfelk/conf.d:ro
+      - ./etc/logstash/conf.d/patterns/:/etc/pfelk/patterns:ro
+      - ./etc/logstash/conf.d/databases/:/etc/pfelk/databases:ro
     ports:
-      - "5000:5000"
-      - "9600:9600"
-      - "5140:5140/udp"
+      - 5040:5040
+      - 5044:5044
+      - 5140:5140/udp
+      - 5141:5141/udp
+      - 5190:5190
+      - 9600:9600
     environment:
       LS_JAVA_OPTS: -Xmx1G -Xms1G
     networks:
@@ -107,13 +105,8 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     restart: unless-stopped
-    volumes:
-      - type: bind
-        source: ./kibana/config/kibana.yml
-        target: /usr/share/kibana/config/kibana.yml
-        read_only: true
     ports:
-      - "5601:5601"
+      - 5601:5601
     networks:
       - elastic
     depends_on:
