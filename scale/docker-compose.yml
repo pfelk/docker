@@ -43,7 +43,7 @@ services:
       - ./logstash/conf.d/:/usr/share/logstash/etc/logstash/conf.d/
       - ./logstash/conf.d/patterns/:/usr/share/logstash/etc/logstash/conf.d/patterns/
       - ./logstash/conf.d/databases/:/usr/share/logstash/etc/logstash/conf.d/databases/
-      - /usr/share/GeoIP/:/usr/share/logstash/GeoIP/
+      - /var/lib/GeoIP/:/usr/share/logstash/GeoIP/
     ports:
       - "5000:5000"
       - "9600:9600"
