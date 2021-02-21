@@ -20,7 +20,7 @@ sudo apt-get install docker-compose
 
 ### (2) Download pfELK Docker
 ```
-sudo wget https://github.com/pfelk/docker-pfelk/raw/master/pfelkdocker.zip
+sudo wget https://github.com/pfelk/docker/raw/main/pfelkdocker.zip
 ```
 #### (2a) Unzip pfelkdocker.zip
 ```
