@@ -80,9 +80,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./etc/logstash/config/:/usr/share/logstash/config:ro       
-      - ./etc/logstash/conf.d/:/etc/pfelk/conf.d:ro
-      - ./etc/logstash/conf.d/patterns/:/etc/pfelk/patterns:ro
-      - ./etc/logstash/conf.d/databases/:/etc/pfelk/databases:ro
+      - ./etc/pfelk/conf.d/:/etc/pfelk/conf.d:ro
+      - ./etc/pfelk/conf.d/patterns/:/etc/pfelk/patterns:ro
+      - ./etc/pfelk/conf.d/databases/:/etc/pfelk/databases:ro
     ports:
       - 5040:5040
       - 5044:5044
